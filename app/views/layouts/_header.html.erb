@@ -7,57 +7,56 @@
       </button>
       <%= link_to t(".title"), root_path, class: "navbar-brand" %>
     </div>
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text"><%= t ".navbar_text" %></p></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <b><%= t ".login" %></b> <span class="caret"></span></a>
-          <ul id="login-dp" class="dropdown-menu">
-            <li>
-              <div class="row">
-                <div class="col-md-12">
-                  <form class="form" role="form" method="post" action="login"
-                    accept-charset="UTF-8" id="login-nav">
-                    <div class="form-group">
-                      <label class="sr-only" for="InputEmail2"><%= t "email" %>
-                      </label>
-                      <input type="email" class="form-control" id="InputEmail2"
-                        placeholder="Email address" required>
+        <% if user_signed_in? %>
+          <li>
+            <p class="navbar-text">
+              <%= t ".navbar_signed_in" %>
+              <%= link_to current_user.email, edit_user_registration_path %>
+            </p>
+          </li>
+          <li class="nav navbar-text">
+            <p><%= link_to t("user_resources.signout"),
+              destroy_user_session_path, method: :delete %>
+            </p>
+          </li>
+        <% else %>
+          <li><p class="navbar-text"><%= t ".navbar_text" %></p></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <b><%= t ".login" %></b> <span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <%= simple_form_for :user,
+                      url: session_path(:user) do |f| %>
+                      <%= f.input :email %>
+                      <%= f.input :password %>
+                      <%= f.input :remember_me, as: :boolean %>
+                      <%= f.button :submit %>
+                    <% end %>
+                    <%= t ".login_via" %>
+                    <div class="social-buttons">
+                      <a href="#" class="btn btn-fb">
+                        <i class="fa fa-facebook"></i> <%= t ".facebook" %>
+                      </a>
+                      <a href="#" class="btn btn-tw">
+                        <i class="fa fa-twitter"></i> <%= t ".twitter" %>
+                      </a>
                     </div>
-                    <div class="form-group">
-                      <label class="sr-only" for="InputPassword2">
-                        <%= t ".password" %></label>
-                      <input type="password" class="form-control"
-                        id="InputPassword2" placeholder="Password" required>
-                      <button type="submit" class="btn btn-primary btn-block">
-                        <%= t ".signin" %></button>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"><%= t ".remember_me" %>
-                      </label>
-                    </div>
-                    <div class="help-block text-left">
-                      <a href=""><%= t ".forget" %></a>
-                    </div>
-                  </form>
-                  <%= t ".login_via" %>
-                  <div class="social-buttons">
-                    <a href="#" class="btn btn-fb"><i class="fa fa-facebook">
-                      </i> <%= t ".facebook" %></a>
-                    <a href="#" class="btn btn-tw"><i class="fa fa-twitter">
-                      </i> <%= t ".twitter" %></a>
+                  </div>
+                  <div class="bottom text-center"><%= t ".new_here" %>
+                    <b>
+                      <%= link_to t(".signup"), new_user_registration_path %>
+                    </b>
                   </div>
                 </div>
-                <div class="bottom text-center"><%= t ".new_here" %>
-                  <a href="#"><b><%= t ".signup" %></b></a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </li>
+              </li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
