@@ -1,3 +1,4 @@
 class Discount < ApplicationRecord
-  has_many :bookings, :tours, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  has_many :tours, dependent: :destroy
 end
