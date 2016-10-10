@@ -6,10 +6,7 @@ class Ability
     if user.is_admin?
       can :manage, :all
     else
-      if namespace == "admin"
-        cannot :manage, :all
-      end
-      can :read, :all
+      cannot :manage, ActiveAdmin::Page, namespace_name: :admin
     end
   end
 end
