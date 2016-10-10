@@ -1,5 +1,7 @@
 class Review < ApplicationRecord
-  belongs_to :user, :tour, :place
+  belongs_to :user
+  belongs_to :tour
+  belongs_to :place
 
   has_many :comments, dependent: :destroy
   has_many :activities, as: :activable, dependent: :destroy

@@ -13,9 +13,12 @@ gem "devise"
 gem "cancancan"
 gem "simple_form"
 gem "devise-bootstrapped"
+gem "activeadmin", github: "activeadmin/activeadmin"
+gem "inherited_resources", github: "activeadmin/inherited_resources"
 
 group :development, :test do
-  gem "byebug", platform: :mri
+  gem "pry-rails"
+  gem "pry-byebug"
   gem "mysql2", ">= 0.3.18", "< 0.5"
 end
 

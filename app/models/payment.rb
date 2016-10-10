@@ -1,3 +1,4 @@
 class Payment < ApplicationRecord
-  belongs_to :booking, :bank_account
+  belongs_to :booking
+  belongs_to :bank_account
 end
