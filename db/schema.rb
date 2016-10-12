@@ -140,12 +140,17 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",    limit: 65535
+    t.string   "title"
+    t.text     "content",            limit: 65535
     t.integer  "user_id"
     t.integer  "tour_id"
     t.integer  "place_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["place_id"], name: "index_reviews_on_place_id", using: :btree
     t.index ["tour_id"], name: "index_reviews_on_tour_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
