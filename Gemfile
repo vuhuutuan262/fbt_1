@@ -15,6 +15,8 @@ gem "simple_form"
 gem "devise-bootstrapped"
 gem "activeadmin", github: "activeadmin/activeadmin"
 gem "inherited_resources", github: "activeadmin/inherited_resources"
+gem "ckeditor"
+gem "paperclip"
 
 group :development, :test do
   gem "pry-rails"
