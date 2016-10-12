@@ -40,6 +40,11 @@ en:
     signin: Sign In
     signout: Sign Out
   back: Back
+  review:
+    new: "New Review"
+    index: "Reviews"
+    create_success: "Thank you! Your review created successfully."
+    create_error: "Your review has not been created!"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def access_denied exception
     redirect_to root_path, alert: exception.message
   end
+
+  def load_places
+    @places_select = Place.all.collect{|place| [place.name, place.id]}
+  end
 end

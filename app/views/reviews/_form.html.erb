@@ -1,0 +1,9 @@
+<%= simple_form_for @review do |f| %>
+  <%= f.label :place %>
+  <%= f.select :place_id, @places_select %>
+  <%= f.input :title %>
+  <%= f.input :content, as: :ckeditor, input_html: {height: 300} %>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
