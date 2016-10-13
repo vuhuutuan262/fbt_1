@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   end
 
   create_table "bank_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "userName"
+    t.string   "username"
     t.string   "password"
-    t.string   "accountNumber"
+    t.string   "accountnumber"
     t.integer  "balance"
     t.integer  "user_id"
     t.datetime "created_at",    null: false
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.string   "title"
     t.text     "content",            limit: 65535
     t.integer  "user_id"
-    t.integer  "tour_id"
     t.integer  "place_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -152,7 +151,6 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.index ["place_id"], name: "index_reviews_on_place_id", using: :btree
-    t.index ["tour_id"], name: "index_reviews_on_tour_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
@@ -195,7 +193,6 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   add_foreign_key "ratings", "tours"
   add_foreign_key "ratings", "users"
   add_foreign_key "reviews", "places"
-  add_foreign_key "reviews", "tours"
   add_foreign_key "reviews", "users"
   add_foreign_key "tours", "categories"
   add_foreign_key "tours", "discounts"

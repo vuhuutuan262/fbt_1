@@ -39,9 +39,11 @@
                     <% end %>
                     <%= t ".login_via" %>
                     <div class="social-buttons">
-                      <a href="#" class="btn btn-fb">
-                        <i class="fa fa-facebook"></i> <%= t ".facebook" %>
-                      </a>
+                      <%= link_to user_facebook_omniauth_authorize_path do %>
+                        <div class="btn btn-fb">
+                          <i class="fa fa-facebook"></i><%= t ".facebook" %>
+                        </div>
+                      <% end %>
                       <a href="#" class="btn btn-tw">
                         <i class="fa fa-twitter"></i> <%= t ".twitter" %>
                       </a>
