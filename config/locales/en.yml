@@ -39,12 +39,14 @@ en:
     update: Update
     signin: Sign In
     signout: Sign Out
+    not_found: User Not Found
   back: Back
   review:
     new: "New Review"
     index: "Reviews"
     create_success: "Thank you! Your review created successfully."
     create_error: "Your review has not been created!"
+  not_authorized: "You are not allowed to do that!"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
