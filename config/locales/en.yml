@@ -45,9 +45,9 @@ en:
   delete: Delete
   delete_confirm: "You sure?"
   by: " by "
-  time: "%Y/%m/%d %H:%M"
   posted: "Posted on "
   review:
+    time: "%Y/%m/%d %H:%M"
     new: "New Review"
     title: "Review"
     index: "My Reviews"

@@ -16,4 +16,8 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     user.try :is_admin?
   end
+
+  def destroy_all?
+    true
+  end
 end
