@@ -41,12 +41,24 @@ en:
     signout: Sign Out
     not_found: User Not Found
   back: Back
+  edit: Edit
+  delete: Delete
+  delete_confirm: "You sure?"
+  by: " by "
+  time: "%Y/%m/%d %H:%M"
+  posted: "Posted on "
   review:
     new: "New Review"
-    index: "Reviews"
+    title: "Review"
+    index: "My Reviews"
     create_success: "Thank you! Your review created successfully."
     create_error: "Your review has not been created!"
-  not_authorized: "You are not allowed to do that!"
+    updated_success: "Your review updated successfully!"
+    updated_error: "Your review has not been created!"
+    not_found: "Review not found"
+    destroyed_success: "Review destroyed!"
+    destroyed_error: "Review has not been destroyed"
+  not_authorized: "You are not authorized to perform this action."
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

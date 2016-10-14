@@ -1,3 +1,27 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+.review {
+  h1 {
+    font-size: 2.0em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: normal;
+    font-weight: Arial;
+    color: #151515;
+  }
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
 body {
   background-color: #fff;
   color: #333;

@@ -1,0 +1,22 @@
+<% provide :title, @review.title %>
+<div class="jumbotron">
+  <div class="review"><h1><%= @review.title %></h1></div>
+    <div class="row">
+      <div class="col-md-8">
+        <li>
+          <%= t :posted %><%= @review.created_at.strftime t :time %>
+            <%= t :by %><%= @review.user.name %>
+        </li>
+      </div>
+      <% if policy(@review).update? %>
+        <div class="col-md-4">
+          <%= link_to t(:edit), edit_review_path(@review),
+            class: "btn btn-default btn-xs glyphicon glyphicon-edit" %>
+          <%= link_to t(:delete), review_path(@review),
+            method: :delete, data: {confirm: t(:delete_confirm)},
+            class: "btn btn-default btn-xs glyphicon glyphicon-trash" %>
+        </div>
+      <% end %>
+    </div><br>
+  <%= @review.content.html_safe %>
+</div>
