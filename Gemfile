@@ -17,6 +17,8 @@ gem "activeadmin", github: "activeadmin/activeadmin"
 gem "inherited_resources", github: "activeadmin/inherited_resources"
 gem "ckeditor"
 gem "paperclip"
+gem "omniauth-twitter"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "pry-rails"
