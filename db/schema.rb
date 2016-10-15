@@ -90,10 +90,11 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.string   "name"
     t.integer  "percent"
     t.text     "description", limit: 65535
-    t.date     "startDate"
-    t.date     "endDate"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "status",                    default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

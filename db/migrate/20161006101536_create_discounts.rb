@@ -4,8 +4,9 @@ class CreateDiscounts < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :percent
       t.text :description
-      t.date :startDate
-      t.date :endDate
+      t.date :start_date
+      t.date :end_date
+      t.integer :status, default: 0
 
       t.timestamps
     end

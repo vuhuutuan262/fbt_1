@@ -19,6 +19,7 @@ gem "ckeditor"
 gem "paperclip"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
+gem "whenever", require: false
 
 group :development, :test do
   gem "pry-rails"
