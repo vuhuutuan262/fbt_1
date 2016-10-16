@@ -109,13 +109,17 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",           limit: 65535
+    t.text     "content",             limit: 65535
     t.integer  "amount"
     t.integer  "sendAccount_id"
     t.integer  "receiveAccount_id"
     t.integer  "booking_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "purchased_at"
+    t.string   "transaction_id"
+    t.string   "status"
+    t.text     "notification_params", limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.index ["booking_id"], name: "index_payments_on_booking_id", using: :btree
     t.index ["receiveAccount_id"], name: "index_payments_on_receiveAccount_id", using: :btree
     t.index ["sendAccount_id", "receiveAccount_id"], name: "index_payments_on_sendAccount_id_and_receiveAccount_id", unique: true, using: :btree

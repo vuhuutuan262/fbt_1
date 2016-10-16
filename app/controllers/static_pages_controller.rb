@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  skip_filter :authenticate_user!
   def show
     if valid_page?
       render "static_pages/#{params[:page]}"
