@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   devise_for :user,
     controllers: {omniauth_callbacks: :"omniauth_callbacks#create" }
+
+  resources :payments, except: [:index, :edit, :destroy]
+  post "/payments/:id" => "payments#show"
 end
