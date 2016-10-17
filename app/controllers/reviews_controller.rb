@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  skip_filter :authenticate_user!, only: :show
   before_action :load_places, only: [:new, :edit]
   before_action :find_review, except: [:new, :create, :index]
 

@@ -6,6 +6,10 @@ class CreatePayments < ActiveRecord::Migration[5.0]
       t.integer :sendAccount_id
       t.integer :receiveAccount_id
       t.references :booking, foreign_key: true
+      t.datetime :purchased_at
+      t.string :transaction_id
+      t.string :status
+      t.text :notification_params
 
       t.timestamps
     end
