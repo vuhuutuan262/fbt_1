@@ -19,5 +19,15 @@ namespace :db do
         User.create name: name, email: email, password: password
       end
     end
+
+    task fake_rating: :environment do
+      Rating.destroy_all
+      tour = Tour.first
+      users = User.all.shuffle.take 10
+      users.each do |user|
+        rate = rand 5
+        Rating.create user:user, tour: tour, rate: rate
+      end
+    end
   end
 end
