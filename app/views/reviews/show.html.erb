@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-8">
         <li>
-          <%= t :posted %><%= @review.created_at.strftime t :time %>
+          <%= t :posted %><%= @review.created_at.strftime t "review.time" %>
             <%= t :by %><%= @review.user.name %>
         </li>
       </div>

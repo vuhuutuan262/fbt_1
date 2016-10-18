@@ -2,8 +2,12 @@ class ReviewsController < ApplicationController
   skip_filter :authenticate_user!, only: :show
   before_action :load_places, only: [:new, :edit]
   before_action :find_review, except: [:new, :create, :index]
+  before_action :find_notification, only: :show
 
   def show
+    if @notification
+      @notification.update_attributes seen: true;
+    end
   end
 
   def new
@@ -58,5 +62,9 @@ class ReviewsController < ApplicationController
       flash.now[:danger] = t "review.not_found"
       redirect_to root_url
     end
+  end
+
+  def find_notification
+    @notification = Activity.find_by id: params[:notification_id]
   end
 end

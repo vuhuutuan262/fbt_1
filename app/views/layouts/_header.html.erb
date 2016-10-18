@@ -18,16 +18,22 @@
               <li><%= link_to t("review.index"), reviews_path %></li>
             </ul>
           </li>
-          <li>
-            <p class="navbar-text">
-              <%= t ".navbar_signed_in" %>
-              <%= link_to current_user.email, edit_user_registration_path %>
-            </p>
+          <li id="notification_li">
+            <a id="notificationLink">
+              <%= t "static_pages.notification.count_notifi",
+                count_activity: "#{@count_activities}" %>
+            </a>
           </li>
-          <li class="nav navbar-text">
-            <p><%= link_to t("user_resources.signout"),
-              destroy_user_session_path, method: :delete %>
-            </p>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+              <b><%= t ".navbar_signed_in" %></b>
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to current_user.email,
+                edit_user_registration_path %></li>
+              <li><%= link_to t("user_resources.signout"),
+                destroy_user_session_path, method: :delete %></li>
+            </ul>
           </li>
         <% else %>
           <li><p class="navbar-text"><%= t ".navbar_text" %></p></li>
@@ -71,3 +77,15 @@
     </div>
   </div>
 </nav>
+<div id="notificationContainer">
+  <div id="notificationsBody">
+    <% if current_user %>
+      <% @activities.each do |f| %>
+        <%= render "activities/notification", f:f %>
+      <% end %>
+    <% end %>
+  </div>
+  <div id="notificationFooter">
+    <%= link_to t("static_pages.notification.see_all"), root_path %>
+  </div>
+</div>
