@@ -1,0 +1,16 @@
+<% provide :title, @tour.name %>
+<div class="row">
+  <div class="col-md-9">
+    <div class="well well-sm">
+      <h2><%= @tour.name %><h2>
+      <p><%= @tour.description.html_safe %></p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="well well-sm">
+      <h4><%= t"tour.price" %><%= @tour.price %><%= t :money %></h4>
+      <h4><%= @tour.duration %><%= t :day %></h4>
+      <a class="btn btn-success" href="#"><%= t :booking %></a>
+    </div>
+  </div>
+</div>
