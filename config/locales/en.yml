@@ -59,6 +59,14 @@ en:
     destroyed_success: "Review destroyed!"
     destroyed_error: "Review has not been destroyed"
   not_authorized: "You are not authorized to perform this action."
+  money: " $"
+  booking: Booking
+  day: " Days"
+  category:
+    not_found: "category not found"
+  tour:
+    not_found: "tour not found"
+    price: "Price "
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

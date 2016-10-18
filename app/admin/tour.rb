@@ -1,5 +1,5 @@
 ActiveAdmin.register Tour do
- permit_params :name, :duration, :price, :place_id, :category_id, :description
+  permit_params :name, :duration, :price, :place_id, :category_id, :description
 
   index do
     selectable_column
@@ -37,7 +37,7 @@ ActiveAdmin.register Tour do
     f.actions
   end
 
-  batch_action :add_discount, 
+  batch_action :add_discount,
     form: -> {{discount: Discount.pluck(:name, :id)}} do |ids, inputs|
     discount = Discount.find_by_id inputs[:discount]
     Tour.find(ids).each do |tour|
