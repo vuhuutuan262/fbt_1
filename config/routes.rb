@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   resources :payments, except: [:index, :edit, :destroy]
   post "/payments/:id" => "payments#show"
+  resources :activities
 end
