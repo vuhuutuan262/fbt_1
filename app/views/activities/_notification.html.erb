@@ -1,7 +1,7 @@
 <%= link_to review_path(f.activable_id, notification_id: f.id) do %>
   <div class="div-notification">
     <center>
-      <h5 class="<%= 'div-color-red' if f.seen? %>">
+      <h5 class="<%= 'div-color-red' unless f.seen? %>">
         <%= f.user.name %>
         <%= f.activable_type %>
         <%= f.activable_id %>
