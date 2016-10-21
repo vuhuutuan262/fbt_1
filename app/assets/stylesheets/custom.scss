@@ -203,6 +203,10 @@ label {
   z-index: -1;
   display: none;
   float: right;
+  position:absolute;
+  z-index: 2;
+  margin-left: 69%;
+  margin-top: 6%
 }
 
 #notificationsBody {
@@ -241,4 +245,92 @@ label {
 
 .div-color-red {
   color: crimson;
+}
+
+*{outline:none;}
+
+#header {
+  height:100px;
+  background:transparent url(slideshow.png) no-repeat 50% 16px ;
+}
+
+#footer {
+  height: 43px;
+  padding-top:10px;
+  width:979px;
+  margin:0pt auto 0px;
+}
+
+#footer div p {
+  width:979px;
+}
+
+#push {
+  height: 43px;
+  padding-top:10px;
+}
+#wrapper {
+  width:979px;
+  min-height: 96%;
+  height: auto !important;
+  height: 96%;
+  text-align:left;
+  margin: 0 auto -30px;
+  padding:0 10px 0px 10px;
+}
+
+.clearfix {
+  clear:both;
+  float:none;
+}
+
+#bigPic {
+  width:940px;
+  height:300px;
+  padding:1px;
+  border:1px solid #CCC;
+  background-color:#FFF;
+  margin-bottom:10px;
+}
+
+#bigPic img {
+  position:absolute;
+  display:none;
+}
+
+ul#thumbs li.active {
+  border:2px solid #000;
+  background:#fff;
+  padding:2px;
+}
+
+ul#thumbs, ul#thumbs li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+ul#thumbs li {
+  float:left;
+  margin-right:7px;
+  margin-bottom:5px;
+  border:1px solid #CCC;
+  padding:3px;
+  cursor:pointer;
+}
+
+ul#thumbs img {
+  float:left;
+  width:80px;
+  height:80px;
+  line-height:80px;
+  overflow:hidden;
+  position:relative;
+  z-index:1;
+}
+
+.div-content-application {
+  position:absolute;
+  z-index: 1;
+  width: 92%
 }

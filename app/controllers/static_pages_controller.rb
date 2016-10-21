@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   skip_filter :authenticate_user!
+  before_action :load_place, only: :home
+
   def show
     if valid_page?
       render "static_pages/#{params[:page]}"
@@ -12,5 +14,10 @@ class StaticPagesController < ApplicationController
   def valid_page?
     File.exist? Pathname
       .new Rails.root + "app/views/static_pages/#{params[:page]}.html.erb"
+  end
+
+  def load_place
+    @places = Place.all.order(viewer: :desc).
+      limit(Settings.limit_image_view)
   end
 end
