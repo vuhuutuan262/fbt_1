@@ -29,8 +29,8 @@ ActiveAdmin.register Discount do
       f.input :name
       f.input :percent
       f.input :description, as: :ckeditor
-      f.input :start_date
-      f.input :end_date
+      f.input :start_date, as: :datepicker
+      f.input :end_date, as: :datepicker
     end
     f.actions
   end

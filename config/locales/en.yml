@@ -63,7 +63,12 @@ en:
     destroyed_error: "Review has not been destroyed"
   not_authorized: "You are not authorized to perform this action."
   money: " $"
-  booking: Booking
+  booking:
+    booking: Booking
+    transaction: Transaction
+    not_found: Booking Not Fond
+    created: Booking Has Been Created
+    created_error: Booking Has Not Bean Created
   day: " Days"
   category:
     not_found: "category not found"

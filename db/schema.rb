@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   end
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "status"
-    t.integer  "totalPrice"
-    t.date     "date"
+    t.integer  "status",      default: 0
+    t.integer  "total_price"
+    t.date     "start_date"
     t.integer  "user_id"
     t.integer  "tour_id"
     t.integer  "discount_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["discount_id"], name: "index_bookings_on_discount_id", using: :btree
     t.index ["tour_id"], name: "index_bookings_on_tour_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -111,21 +111,15 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",             limit: 65535
+    t.text     "content",        limit: 65535
     t.integer  "amount"
-    t.integer  "sendAccount_id"
-    t.integer  "receiveAccount_id"
     t.integer  "booking_id"
     t.datetime "purchased_at"
     t.string   "transaction_id"
-    t.string   "status"
-    t.text     "notification_params", limit: 65535
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.integer  "status",                       default: 0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.index ["booking_id"], name: "index_payments_on_booking_id", using: :btree
-    t.index ["receiveAccount_id"], name: "index_payments_on_receiveAccount_id", using: :btree
-    t.index ["sendAccount_id", "receiveAccount_id"], name: "index_payments_on_sendAccount_id_and_receiveAccount_id", unique: true, using: :btree
-    t.index ["sendAccount_id"], name: "index_payments_on_sendAccount_id", using: :btree
   end
 
   create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

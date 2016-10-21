@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
   skip_filter :authenticate_user!, only: :show
+
   before_action :load_places, only: [:new, :edit]
-  before_action :find_review, except: [:new, :create, :index]
-  before_action :find_notification, only: :show
+  before_action(except: [:new, :create, :index]) {find_object "review", "id"}
+  before_action(only: :show) {find_object "activity", "notification_id"}
 
   def show
     if @notification
@@ -12,8 +13,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = current_user.reviews.build
-  end
-
+  end 
   def create
     @review = current_user.reviews.build review_params
     if @review.save
@@ -54,17 +54,5 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit :title, :content, :place_id
-  end
-
-  def find_review
-    @review = Review.find_by id: params[:id]
-    if @review.nil?
-      flash.now[:danger] = t "review.not_found"
-      redirect_to root_url
-    end
-  end
-
-  def find_notification
-    @notification = Activity.find_by id: params[:notification_id]
   end
 end
