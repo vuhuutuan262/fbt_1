@@ -32,6 +32,15 @@ en:
     notification:
       see_all: "See All"
       count_notifi: "Notifications (%{count_activity})"
+    menu:
+      north: "Miền Bắc"
+      north-south: "Miền Trung"
+      south: "Miền Nam"
+      hanoi: "Hà Nội"
+      halong: "Hạ Long"
+      hue: "Huế"
+      nhatrang: "Nha Trang"
+      danang: "Đà Nẵng"
   user_resources:
     edit: Edit Profile
     minimum_password: (%{minimum_length} characters minimum)
@@ -295,3 +304,5 @@ en:
       block: "List"
       grid: "Grid"
       blog: "Blog"
+  view_tour:
+    price: "Price:"
