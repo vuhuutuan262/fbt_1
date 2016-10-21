@@ -1,15 +1,9 @@
 class ToursController < ApplicationController
-  before_action :find_tour, only: :show
-
-  def show
+  before_action(only: :show) {find_object "tour", "id"}
+  def index
+    @tours = Tour.all
   end
 
-  private
-  def find_tour
-    @tour = Tour.find_by id: params[:id]
-    if @tour.nil?
-      flash[:danger] = t "tour.not_found"
-      redirect_to root_url
-    end
+  def show
   end
 end

@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
-  before_action :load_notifications
   include Pundit
   protect_from_forgery with: :exception
   rescue_from Pundit::NotAuthorizedError, with: :access_denied
+  before_action :authenticate_user!
+  before_action :load_notifications
 
   private
   def after_sign_in_path_for user
@@ -21,8 +21,24 @@ class ApplicationController < ActionController::Base
   def load_notifications
     if current_user
       @activities = Activity.my_activity current_user.id
-      @count_activities =
-        (Activity.notification_activities current_user.id).count
+      @count_activities = @activities.seen.size
+    end
+  end
+
+  def find_object *args
+    if args[0] == "tour_booking"
+      @tour = Tour.find_by id: params[:tour_id]
+      redirect_to :back unless @tour
+      @booking = @tour.bookings.find_by id: params[:id]
+      redirect_to :back unless @booking
+    elsif args[0] == "activity"
+      @notification = Activity.find_by id: params[:notification_id]
+    else
+      var_name = "@#{args[0]}"
+      unless instance_variable_set(var_name,
+        args[0].capitalize.constantize.find_by(id: params[args[1].to_sym]))
+        redirect_to root_path
+      end
     end
   end
 end
