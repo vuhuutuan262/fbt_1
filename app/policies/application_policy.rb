@@ -54,4 +54,9 @@ class ApplicationPolicy
       scope
     end
   end
+
+  private
+  def is_owner?
+    user == record.user
+  end
 end

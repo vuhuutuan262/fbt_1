@@ -10,7 +10,11 @@
     <div class="well well-sm">
       <h4><%= t"tour.price" %><%= @tour.price %><%= t :money %></h4>
       <h4><%= @tour.duration %><%= t :day %></h4>
-      <a class="btn btn-success" href="#"><%= t :booking %></a>
     </div>
   </div>
+  <% if policy(@booking).new? %>
+    <div>
+      <%= render "bookings/new" %>
+    </div>
+  <% end %>
 </div>

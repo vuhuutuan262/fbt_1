@@ -1,0 +1,7 @@
+<% @tours.each do |tour| %>
+  <div class="tour-index">
+    <%= link_to tour.name, tour_path(tour) %><br>
+    <%= tour.description.html_safe %><br>
+    <%= tour.price %>
+  </div>
+<% end %>

@@ -6,7 +6,5 @@ class Activity < ApplicationRecord
   scope :my_activity, -> user_id{
     where("activities.tag_user_id = ?", user_id)}
 
-  scope :notification_activities, -> user_id{
-    where("activities.tag_user_id = ?
-    AND activities.seen = ?", user_id, 0)}
+  scope :not_seen, -> {where seen: false}
 end
