@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
       redirect_to payment.paypal_url [@tour, @booking]
     elsif paypal_params[:payment_status] == "Completed"
       payment = @booking.payment
-      payment.update_attributes status: "completed",
+      payment.update_attributes status: 1,
         transaction_id: paypal_params[:txn_id], purchased_at: Time.now
       @booking.pending!
     end

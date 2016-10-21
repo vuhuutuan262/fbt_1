@@ -8,19 +8,17 @@ class Booking < ApplicationRecord
 
   enum status: [:init, :pending, :accepted, :ignored, :canceled]
 
-  before_create :apply_discount, unless: :discount
-  validates :start_date, presence: true
+  before_create :apply_discount
 
   private
   def apply_discount
-    unless discount && total_price
-      if tour.discount
-        discount = tour.discount
-        total_price = tour.price - tour.price * discount
-        discount_id = discount.id
-      else
-        total_price = tour.price
-      end
+    if tour.discount
+      discount = tour.discount
+      total_price = tour.price - tour.price * discount
+      write_attribute :discount_id, discount.id
+    else
+      total_price = tour.price
     end
+    write_attribute :total_price, total_price
   end
 end
