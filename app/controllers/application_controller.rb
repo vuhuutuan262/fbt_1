@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
   def load_notifications
     if current_user
       @activities = Activity.my_activity current_user.id
-      @count_activities = @activities.seen.size
     end
   end
 

@@ -13,4 +13,9 @@
   <div class="clearfix"></div>
   <div id="push"></div>
 </div>
+<div style="width:100%; height: 280px">
+  <% @reviews.each do |f| %>
+    <%= render "reviews/reviews", f: f %>
+  <% end %>
+</div>
 <div id="footer"></div>
