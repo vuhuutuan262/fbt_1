@@ -64,7 +64,12 @@ en:
   not_authorized: "You are not authorized to perform this action."
   money: " $"
   booking:
+    customer: "Customer: "
+    tour: "Tour"
+    price: "Price"
+    start: "Start date"
     booking: Booking
+    payment: Payment
     transaction: Transaction
     not_found: Booking Not Fond
     created: Booking Has Been Created

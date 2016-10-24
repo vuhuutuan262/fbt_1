@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = current_user.reviews.build
-  end 
+  end
   def create
     @review = current_user.reviews.build review_params
     if @review.save

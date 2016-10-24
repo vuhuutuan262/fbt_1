@@ -9,6 +9,7 @@ class Booking < ApplicationRecord
   enum status: [:init, :pending, :accepted, :ignored, :canceled]
 
   before_create :apply_discount, unless: :discount
+  validates :start_date, presence: true
 
   private
   def apply_discount
