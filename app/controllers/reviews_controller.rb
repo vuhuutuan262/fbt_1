@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :load_places, only: [:new, :edit]
   before_action(except: [:new, :create, :index]) {find_object "review", "id"}
   before_action(only: :show) {find_object "activity", "notification_id"}
+  before_action :max_number, only: :create
 
   def show
     if @notification
@@ -18,6 +19,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build review_params
+    @review.assign_attributes number: @max + 1
     if @review.save
       flash.now[:success] = t "review.create_success"
       redirect_to @review
@@ -56,5 +58,9 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit :title, :content, :place_id
+  end
+
+  def max_number
+    @max = Review.maximum("number")
   end
 end

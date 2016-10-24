@@ -24,6 +24,8 @@ gem "figaro"
 gem "config"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
+gem "font-awesome-rails"
+gem "ransack"
 
 group :development, :test do
   gem "pry-rails"

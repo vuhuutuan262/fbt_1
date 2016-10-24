@@ -8,12 +8,28 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.build comment_params
     @comment.user = current_user
-    flash[:danger] = t "comment.create_error" unless @comment.save
-    redirect_to :back
+    unless @comment.commentable.user_id == current_user.id
+    @activity = @comment.activities.new tag_user_id: @comment.commentable.user_id,
+      user_id: current_user.id
+    end
+    if @comment.save
+      if @comment.commentable_type == "Review"
+        @commentable.update_attributes number: Review.maximum("number") +1
+      else
+        @commentable.commentable.update_attributes number: Review.maximum("number") +1
+      end
+      flash[:danger] = t "comment.create_error"
+      redirect_to :back
+    end
   end
 
   def destroy
-    @comment = Comment.find_by id: params[:comment_id]
+    autherize @comment
+    if params[:comment_id]
+      @comment = Comment.find_by id: params[:comment_id]
+    else
+      @comment = Comment.find_by id: params[:id]
+    end
     flash.now[:danger] = t "comment.not_axist" if @comment.nil?
     if @comment.destroy
       flash[:success] = t "comment.destroyed_success"

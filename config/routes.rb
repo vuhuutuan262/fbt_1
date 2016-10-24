@@ -23,4 +23,5 @@ Rails.application.routes.draw do
     post "bookings/:id" => "bookings#show"
   end
   resources :places, only: :show
+  get "search(/:search)", to: "searches#index", as: :search
 end

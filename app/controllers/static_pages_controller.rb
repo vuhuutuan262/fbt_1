@@ -19,6 +19,7 @@ class StaticPagesController < ApplicationController
   def load_place_and_review
     @places = Place.all.order(viewer: :desc).
       limit(Settings.limit_image_view)
-    @reviews = Review.all
+    @reviews = Review.all.order(number: :desc).
+      limit(6)
   end
 end
