@@ -24,7 +24,7 @@ ActiveAdmin.register Category do
     f.inputs do
       f.input :name
       f.input :description, as: :ckeditor
-      f.input :cover, required: true, as: :file
+      f.input :cover, as: :url
     end
     f.actions
   end

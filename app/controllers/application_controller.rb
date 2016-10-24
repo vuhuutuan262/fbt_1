@@ -41,4 +41,8 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def admin_user?
+    current_user.is_admin?
+  end
 end

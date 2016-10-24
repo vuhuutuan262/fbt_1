@@ -13,7 +13,10 @@ ActiveAdmin.register Place do
   show do
     h3 place.name
     div do
-      raw place.description
+      place.description.html_safe
+    end
+    div do
+      image_tag place.image
     end
   end
 
@@ -22,7 +25,7 @@ ActiveAdmin.register Place do
     f.inputs do
       f.input :name
       f.input :description, as: :ckeditor
-      f.input :cover, required: true, as: :file
+      f.input :image, as: :url
     end
     f.actions
     end
