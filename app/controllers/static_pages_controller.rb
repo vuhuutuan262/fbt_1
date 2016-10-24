@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  skip_filter :authenticate_user!
+  skip_before_action :authenticate_user!
   before_action :load_place, only: :home
 
   def show

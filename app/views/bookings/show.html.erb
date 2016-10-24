@@ -1,0 +1,5 @@
+<%= @booking.user.name %>
+<%= @booking.tour.name %>
+<%= @booking.created_at %>
+<%= link_to t("booking.transaction"), tour_booking_path(@tour, @booking,
+  user_payment: "user_payment"), method: :patch %>
