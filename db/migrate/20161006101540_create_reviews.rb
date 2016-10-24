@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.text :content
       t.references :user, foreign_key: true
       t.references :place, foreign_key: true
-      t.attachment :image
+      t.string :image
 
       t.timestamps
     end
