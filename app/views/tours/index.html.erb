@@ -1,7 +1,19 @@
-<% @tours.each do |tour| %>
-  <div class="tour-index">
-    <%= link_to tour.name, tour_path(tour) %><br>
-    <%= tour.description.html_safe %><br>
-    <%= tour.price %>
+<div class="hotel">
+  <div class="container">
+    <div class="hotel-main">
+      <div class="hotel-head">
+        <h1><%= t "wecome_tour" %></h1>
+        <span class="lft-bar-welcom"> </span>
+        <span class="rit-bar-welcom"> </span>
+      </div>
+      <div class="hotel-bottom">
+        <div class="experts wow bounceInRight">
+          <% @tours.each do |tour| %>
+            <%= render "shared/view", it: tour %>
+          <% end %>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>

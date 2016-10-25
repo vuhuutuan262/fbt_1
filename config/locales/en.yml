@@ -290,3 +290,12 @@ en:
       block: "List"
       grid: "Grid"
       blog: "Blog"
+  footer: "Framgia Booking Tour"
+  review: "Review"
+  tour: "Tour"
+  hours: Posted %{hour} ago
+  what: "What we do"
+  wecome1: "Welcome To Our Travel"
+  wecome2: "The Best Way To Be Lost"
+  visit_place: "Visit Place"
+  wecome_tour: "Welcome To Tour"

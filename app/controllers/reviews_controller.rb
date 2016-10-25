@@ -5,6 +5,10 @@ class ReviewsController < ApplicationController
   before_action(except: [:new, :create, :index]) {find_object "review", "id"}
   before_action(only: :show) {find_object "activity", "notification_id"}
 
+  def index
+    @reviews = Review.all
+  end
+
   def show
     if @notification
       @notification.update_attributes seen: true;
@@ -13,7 +17,8 @@ class ReviewsController < ApplicationController
 
   def new
     @review = current_user.reviews.build
-  end 
+  end
+
   def create
     @review = current_user.reviews.build review_params
     if @review.save
