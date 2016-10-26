@@ -2,16 +2,14 @@
   <div class="container">
     <div class="hotel-main">
       <div class="hotel-head">
-        <h1><%= t "wecome_tour" %></h1>
+        <h1><%= t "wecome_place" %></h1>
         <span class="lft-bar-welcom"> </span>
         <span class="rit-bar-welcom"> </span>
       </div>
       <div class="hotel-bottom">
         <div class="experts wow bounceInRight">
-          <% @tours.each do |tour| %>
-            <%= render "shared/view", tour: tour %>
-          <% end %>
-          <div class="clearfix"> </div>
+            <%= render @places %>
+          <div class="clearfix"></div>
         </div>
       </div>
     </div>

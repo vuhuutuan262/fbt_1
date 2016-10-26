@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :bookings 
     post "bookings/:id" => "bookings#show"
   end
+  resources :places, only: [:index, :show]
 end

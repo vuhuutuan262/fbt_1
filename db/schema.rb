@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.text     "description", limit: 65535
-    t.string   "url_image"
+    t.string   "image"
     t.integer  "viewer",                    default: 0
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
