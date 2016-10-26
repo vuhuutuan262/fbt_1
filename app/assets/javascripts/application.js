@@ -16,54 +16,20 @@
 //= require bootstrap-sprockets
 //= require ckeditor/init
 //= require_tree .
+//= require script
+//= require jquery.fitvids
+//= require modernizr.min
+
+$('span.menu').click(function() {
+  $('ul.res').slideToggle( 300, function() {
+  });
+});
 
 $(document).ready(function() {
-  $('.dropdown-toggle').dropdown();
-});
-
-$('#notificationLink').click(function() {
-  $('#notificationContainer').fadeToggle(300);
-  $('#notification_count').fadeOut("slow");
-  return false;
-});
-
-$(document).click(function() {
-  $('#notificationContainer').hide();
-});
-
-var currentImage;
-var currentIndex = -1;
-var interval;
-function showImage(index){
-  if(index < $('#bigPic img').length){
-    var indexImage = $('#bigPic img')[index]
-      if(currentImage){
-        if(currentImage != indexImage ){
-          $(currentImage).css('z-index',2);
-          clearTimeout(myTimer);
-          $(currentImage).fadeOut(250, function() {
-            myTimer = setTimeout("showNext()", 3000);
-            $(this).css({'display':'none','z-index':1})
-          });
-        }
-      }
-    $(indexImage).css({'display':'block', 'opacity':1});
-    currentImage = indexImage;
-    currentIndex = index;
-    $('#thumbs li').removeClass('active');
-    $($('#thumbs li')[index]).addClass('active');
-  }
-}
-
-function showNext(){
-  var len = $('#bigPic img').length;
-  var next = currentIndex < (len-1) ? currentIndex + 1 : 0;
-  showImage(next);
-}
-
-var myTimer;
-
-$(document).ready(function() {
-  myTimer = setTimeout("showNext()", 3000);
-  showNext();
+  $('#owl-demo').owlCarousel({
+    items : 3,
+    lazyLoad : true,
+    autoPlay : false,
+    pagination : true,
+  });
 });

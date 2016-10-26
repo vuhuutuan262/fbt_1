@@ -7,19 +7,16 @@
       "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application",
       "data-turbolinks-track": "reload" %>
-    <script type="text/javascript" src="js/jquery.min.1.9.js"></script>
   </head>
   <body>
-    <header>
-      <%= render "layouts/header" %>
-    </header>
+    <%= render "layouts/header" %>
     <div class="div-content-application">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
-      <%= render "layouts/footer" %>
     </div>
+    <%= render "layouts/footer" %>
     <%= javascript_include_tag "application",
       "data-turbolinks-track": "reload" %>
   </body>

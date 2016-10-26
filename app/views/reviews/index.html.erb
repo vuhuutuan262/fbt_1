@@ -1,0 +1,15 @@
+<div class="gallery">
+  <div class="container">
+    <div class="galley-grid wow bounceInLeft">
+      <h1><%= t "review" %></h1>
+      <span class="lft-bar-gallery"> </span>
+      <span class="rit-bar-gallery"> </span>
+    </div>
+    <div class="project-top wow fadeInUp animated">
+      <% @reviews.each do |review| %>
+        <%= render "review", review: review %>
+      <% end %>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
