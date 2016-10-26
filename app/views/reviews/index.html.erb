@@ -6,9 +6,7 @@
       <span class="rit-bar-gallery"> </span>
     </div>
     <div class="project-top wow fadeInUp animated">
-      <% @reviews.each do |review| %>
-        <%= render "review", review: review %>
-      <% end %>
+        <%= render @reviews %>
       <div class="clearfix"> </div>
     </div>
   </div>

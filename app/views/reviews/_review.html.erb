@@ -1,9 +1,13 @@
-<div class="col-md-4 project">
-  <div class="projectThumbnail">
-    <div class="projectThumbnailHover projcet-ro">
-      <h4><%= review.title %></h4>
-      <h5><%= t "hours", hour: time_ago_in_words(review.created_at) %></h5>
+<%= link_to review do %>
+  <div class="col-md-4 project">
+    <div class="projectThumbnail">
+      <div class="projectThumbnailHover projcet-ro">
+        <h4><%= review.title %></h4>
+        <h5><%= t "hours",
+          hour: time_ago_in_words(review.created_at) %></h5>
+      </div>
+      <%= image_tag "#{review.image}",
+        class: "img-responsive thumbnailImage" %>
     </div>
-    <%= image_tag "#{review.image}", class:"img-responsive thumbnailImage" %>
   </div>
-</div>
+<% end %>

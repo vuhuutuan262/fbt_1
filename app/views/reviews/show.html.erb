@@ -1,22 +1,28 @@
 <% provide :title, @review.title %>
-<div class="jumbotron">
-  <div class="review"><h1><%= @review.title %></h1></div>
-    <div class="row">
-      <div class="col-md-8">
-        <li>
-          <%= t :posted %><%= @review.created_at.strftime t "review.time" %>
-            <%= t :by %><%= @review.user.name %>
-        </li>
+<div class="hotel">
+  <div class="container">
+    <div class="hotel-main">
+      <div class="hotel-head">
+        <h1><%= @review.title %></h1>
+        <span class="lft-bar-welcom"> </span>
+        <span class="rit-bar-welcom"> </span>
+        <center>
+          <h6><%= t "hours",
+            hour: time_ago_in_words(@review.created_at) %>
+            <%= t :by %><%= @review.user.name %></h6>
+        </center>
       </div>
-      <% if policy(@review).update? %>
-        <div class="col-md-4">
+      <div class="hotel-bottom">
+        <div class="experts wow bounceInRight">
+          <%= @review.content.html_safe %>
           <%= link_to t(:edit), edit_review_path(@review),
             class: "btn btn-default btn-xs glyphicon glyphicon-edit" %>
           <%= link_to t(:delete), review_path(@review),
             method: :delete, data: {confirm: t(:delete_confirm)},
             class: "btn btn-default btn-xs glyphicon glyphicon-trash" %>
+          <div class="clearfix"></div>
         </div>
-      <% end %>
-    </div><br>
-  <%= @review.content.html_safe %>
+      </div>
+    </div>
+  </div>
 </div>
