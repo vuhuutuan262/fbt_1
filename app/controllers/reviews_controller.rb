@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_filter :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: :show
 
   before_action :load_places, only: [:new, :edit]
   before_action(except: [:new, :create, :index]) {find_object "review", "id"}
@@ -58,6 +58,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit :title, :content, :place_id
+    params.require(:review).permit :title, :content, :image
   end
 end

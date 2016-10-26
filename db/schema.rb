@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.integer  "place_id"
     t.integer  "category_id"
     t.string   "image"
+    t.string   "cover"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["category_id"], name: "index_tours_on_category_id", using: :btree

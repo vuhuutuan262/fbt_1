@@ -10,6 +10,7 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.references :place, foreign_key: true
       t.references :category, foreign_key: true
       t.string :image
+      t.string :cover
 
       t.timestamps
     end
