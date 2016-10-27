@@ -19,6 +19,7 @@
 //= require script
 //= require jquery.fitvids
 //= require modernizr.min
+//= require jquery.min
 
 $('span.menu').click(function() {
   $('ul.res').slideToggle( 300, function() {
@@ -33,3 +34,10 @@ $(document).ready(function() {
     pagination : true,
   });
 });
+
+  $(".notifications .messages").hide();
+  $(".notifications").click(function() {
+    if ($(this).children(".messages").children().length > 0) {
+      $(this).children(".messages").fadeToggle(300);
+    }
+  });
