@@ -17,11 +17,26 @@
       <div class="linespace"></div>
       <div class="hotel-bottom">
         <div class="experts wow bounceInRight">
-          <% @tours.each do |tour| %>
-            <%= render "shared/view", tour: tour %>
-          <% end %>
-          <div class="clearfix"></div>
+          <%= render @tours %>
+          <div class="clearfix">
+            <%= paginate @tours, theme: "twitter-bootstrap-3" %>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gallery">
+  <div class="container">
+    <div class="galley-grid wow bounceInLeft">
+      <h1><%= t "review" %></h1>
+      <span class="lft-bar-gallery"> </span>
+      <span class="rit-bar-gallery"> </span>
+    </div>
+    <div class="project-top wow fadeInUp animated">
+      <%= render @reviews %>
+      <div class="clearfix">
+        <%= paginate @reviews, theme: "twitter-bootstrap-3" %>
       </div>
     </div>
   </div>
