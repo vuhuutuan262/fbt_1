@@ -31,7 +31,7 @@ en:
       phone_number: +84 652 685 251
     notification:
       see_all: "See All"
-      count_notifi: "Notifications (%{count_activity})"
+      count_notifi: "(%{count_activity})"
   user_resources:
     edit: Edit Profile
     minimum_password: (%{minimum_length} characters minimum)
@@ -297,6 +297,7 @@ en:
   what: "What we do"
   wecome1: "Welcome To Our Travel"
   wecome2: "The Best Way To Be Lost"
-  visit_place: "Visit Place"
+  visit_place: "Visit"
   wecome_tour: "Welcome To Tour"
   wecome_place: "Welcome To Place"
+  notifi: "%{user_name} commented on your post in link"

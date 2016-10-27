@@ -7,17 +7,38 @@
         <% end %>
       </div>
       <div class="top-navg">
-        <span class="menu"><%= image_tag "icon.png" %></span>
+        <span class="menu"><%= image_tag "ban1.png" %></span>
         <nav class="cl-effect-13">
           <ul class="res">
             <li><%= link_to t("tour"), tours_path %></li>
             <li><%= link_to t("place"), places_path %></li>
             <li><%= link_to t("review"), reviews_path %></li>
-            <li><%= link_to t("login"), new_user_session_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to t("post"), new_review_path %></li>
+              <li>
+                <a>
+                  <div class="notifications">
+                    <div class="glyphicon glyphicon-bell">
+                      <%= t "static_pages.notification.count_notifi",
+                        count_activity: "#{@count_activities}" %>
+                    </div>
+                    <div class="messages">
+                      <%= render @activities %>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li><%= link_to "Setting",
+                edit_user_registration_path %></li>
+              <li><%= link_to t("user_resources.signout"),
+                destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to t("login"), new_user_session_path %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
-      <div class="clearfix"> </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 </div>

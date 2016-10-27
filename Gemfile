@@ -22,6 +22,8 @@ gem "omniauth-facebook"
 gem "whenever", require: false
 gem "figaro"
 gem "config"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 
 group :development, :test do
   gem "pry-rails"

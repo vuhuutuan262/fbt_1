@@ -13792,3 +13792,107 @@ span.rit-bar-contact {
 .leftspace {
   margin-left: 20%
 }
+
+* {
+  margin:0;
+  padding:0;
+}
+
+html {
+  font:12pt Lato, sans-serif;
+  min-height:100%;
+  background-image:linear-gradient(45deg,#3498db,#2ecc71);
+}
+
+.notifications {
+  display:block;
+  position:relative;
+  border-radius:50%;
+}
+
+.notifications .toggle {
+  display:block;
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+.notifications .toggle:before,
+.notifications .toggle:after {
+  content:'.';
+  display:block;
+  position:absolute;
+  left:35px;
+  width:10px;
+  background-color:#bdc3c7;
+  color:transparent;
+  border-radius:5px;
+}
+
+.notifications .toggle:before {
+  top:15px;
+  height:30px;
+}
+
+.notifications .toggle:after {
+  top:55px;
+  height:10px;
+}
+
+.notifications .messages {
+  display:block;
+  position:absolute;
+  left:-80px;
+  width:240px;
+  max-height:240px;
+}
+
+.notifications .messages:before {
+  content:'.';
+  display:block;
+  position:absolute;
+  margin-left:-10px;
+  left:50%;
+  width:0;
+  height:0;
+  color:transparent;
+  border:10px solid black;
+  border-color:transparent transparent white;
+}
+
+.notifications .messages .message {
+  display:block;
+  position:relative;
+  background-color:white;
+  color:black;
+  text-decoration:none;
+}
+
+.notifications .messages .message + .message {
+  border-top:1px solid #e0e0e0;
+}
+
+.session-new {
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+   url(notification.woff2) format('woff2');
+  unicode-range: U+0100-024F,
+   U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+   url(notification.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+   U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
