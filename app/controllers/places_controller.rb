@@ -7,7 +7,8 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @tours = @place.tours.page(params[:page]).per Settings.show_6
+    @tours = @place.tours.page(params[:page]).per Settings.show_8
+    @reviews = @place.reviews.page(params[:page]).per Settings.show_6
   end
 
   private

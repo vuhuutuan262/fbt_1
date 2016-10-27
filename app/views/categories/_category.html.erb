@@ -1,0 +1,22 @@
+<div class="col-md-4 visit-grid">
+  <div class="item-1 item-type-spin">
+    <%= link_to category do %>
+      <div class="item-hover swipebox" data-title="Vigor">
+        <div class="item-info">
+          <div class="headline">
+            <%= category.name %>
+            <div class="line"></div>
+            <div class="date"><%= t "visit_place" %></div>
+          </div>
+        </div>
+        <div class="mask"></div>
+      </div>
+    <% end %>
+    <div class="item-img">
+      <%= image_tag category.cover, class: "img-responsive" %>
+    </div>
+  </div>
+  <h4><%= category.name %></h4>
+  <p><%= category.description.html_safe %></p>
+  <div class="clearfix"></div>
+</div>

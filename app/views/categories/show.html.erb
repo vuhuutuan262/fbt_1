@@ -1,32 +1,15 @@
-<div class="container">
-  <h2><%= @category.name %></h2><br>
-  <div id="products" class="row list-group">
-    <% @tours.each do |tour|%>
-      <div class="item col-md-3">
-        <div class="thumbnail">
-          <%= link_to tour_path tour do %><%= image_tag "1.jpg" %><% end %>
-          <div class="caption">
-            <h4 class="group inner list-group-item-heading">
-              <%= tour.name %>
-            </h4>
-            <p class="group inner list-group-item-text">
-              <%= tour.description.html_safe %>
-            </p>
-            <div class="row">
-              <div class="col-md-6">
-                <p class="lead">
-                  <%= tour.price %><%= t :money %>
-                </p>
-              </div>
-              <div class="col-md-6">
-                <p class="lead">
-                  <%= tour.duration %><%= t :day %>
-                </p>
-              </div>
-            </div>
+<div class="about">
+  <div class="container">
+    <div class="about-main">
+      <h1><%= @category.name %></h1>
+      <div class="clearfix"></div>
+      <div class="hotel-bottom">
+        <div class="experts wow bounceInRight">
+          <%= render @tours %>
+          <div class="clearfix">
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

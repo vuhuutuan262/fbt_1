@@ -19,5 +19,6 @@ class StaticPagesController < ApplicationController
   def load_place
     @places = Place.all.order(viewer: :desc).
       limit(Settings.limit_image_view)
+    @categories = Category.all
   end
 end
