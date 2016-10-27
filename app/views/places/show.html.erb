@@ -9,11 +9,12 @@
       </div>
       <div class="col-md-6 about-right wow bounceInRight">
         <h4><%= @place.name %></h4>
-        <p><%= @place.description %></p>
+        <p><%= @place.description.html_safe %></p>
         <div class="about-list">
         </div>
       </div>
       <div class="clearfix"></div>
+      <div class="linespace"></div>
       <div class="hotel-bottom">
         <div class="experts wow bounceInRight">
           <% @tours.each do |tour| %>

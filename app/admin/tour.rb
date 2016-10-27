@@ -1,5 +1,6 @@
 ActiveAdmin.register Tour do
-  permit_params :name, :duration, :price, :place_id, :category_id, :description
+  permit_params :name, :duration, :price, :place_id, :category_id,
+    :description, :image, :cover
 
   index do
     selectable_column
@@ -37,6 +38,7 @@ ActiveAdmin.register Tour do
       f.input :duration
       f.input :description, as: :ckeditor
       f.input :image, as: :url
+      f.input :cover, as: :url
     end
     f.actions
   end
