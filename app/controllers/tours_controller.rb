@@ -8,6 +8,8 @@ class ToursController < ApplicationController
 
   def show
     @booking = @tour.bookings.build 
+    @comment = current_user.comments.build
+    @comments = @tour.comments
   end
 
   private
